@@ -1,0 +1,37 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class DAO {
+	
+	private Connection conexao;
+	
+	public int incluir(String sql, Object... atributos) {
+		try {
+			PreparedStatement stmt = getConexao().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+		}
+		catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
+	
+	private Connection getConexao() {
+		try {
+			// VERIFICA SE A CONEXAO EXSITE E SE ELA ESTA FECHADA
+			if(conexao != null && !conexao.isClosed()) {
+				return conexao;
+			}
+			
+		}
+		catch(SQLException e){
+			
+		}
+		
+		// SE A CONEXAO NÃO EXISTIR OU ESTIVER FECHADA ELE CRIA UMA NOVA
+		conexao = FabricaConexao.getConexao();
+		return conexao;
+	}
+
+}

@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Tairik Johnny\Desktop\Conectando_Java_BD\.metadata\.plugins\org.eclipse.jdt.core
+1574843208.index
+3682988153.index
+288875035.index
